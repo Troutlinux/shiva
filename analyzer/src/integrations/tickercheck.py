@@ -4,10 +4,10 @@ import requests
 class TCLookup(object):
     def __init__(self):
 
-    def lookup_file_ticker(self, emailbody):
+    def validate_if_it_contains_ticker(self, word):
         try:
             with open('mytickers.txt') as myfile:
-              if 'emailbody' in myfile.read():
+              if 'word' in myfile.read():
                 return True
         except Exception as e:
             print(e)
