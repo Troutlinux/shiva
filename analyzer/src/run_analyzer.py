@@ -16,7 +16,7 @@ def get_file_keys(queue_dir):
 
     for eml_file in glob.iglob(f"{queue_dir}/*.eml"):
         file_key = eml_file[:-4]
-        if os.path.exists(eml_file) and os.path.exists(f"{file_key}.meta"):
+        if os.path.exists(eml_file) and os.path.exists(f"{file_key}.meta") and not os.path.exists(f"{file_key}.analysed"):
             yield os.path.basename(file_key)
 
 
@@ -28,6 +28,10 @@ def run():
         for file_key in get_file_keys(config.QUEUE_DIR):
             result = shiva_analyzer.parse(file_key)
             print(json.dumps(result, indent=4))
+            with open('{file_key}.analysed', 'w') as f:
+                print(json.dumps(result), filename, file=f)
+                f.close()
+        
             # TODO: index this result
 
         print("Processed all files (if any) collected till now. Sleeping now for 30 seconds.")
