@@ -45,7 +45,7 @@ class SHIVAAnalyzer(object):
             if self._tc_client:
                 for word in body.split():
                     is_ticker = self._tc_client.validate_if_it_contains_ticker(word)
-                    if is_ticker
+                    if is_ticker:
                         filename = config.QUEUE_DIR + file_key + '.value'
                         with open(filename, 'w') as f:
                             print(word, file=f)
