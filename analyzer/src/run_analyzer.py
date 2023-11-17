@@ -29,7 +29,7 @@ def run():
             result = shiva_analyzer.parse(file_key)
             print(json.dumps(result, indent=4))
             with open('{file_key}.analysed', 'w') as f:
-                print(json.dumps(result), filename, file=f)
+                print(json.dumps(result), {file_key}.analysed, file=f)
                 f.close()
         
             # TODO: index this result
