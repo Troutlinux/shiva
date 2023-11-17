@@ -28,8 +28,9 @@ def run():
         for file_key in get_file_keys(config.QUEUE_DIR):
             result = shiva_analyzer.parse(file_key)
             print(json.dumps(result, indent=4))
-            with open('{file_key}.analysed', 'w') as f:
-                print(json.dumps(result), '{file_key}.analysed', file=f)
+            filename = config.QUEUE_DIR + file_key + '.analysed'
+            with open(filename, 'w') as f:
+                print(json.dumps(result), file=f)
                 f.close()
         
             # TODO: index this result
