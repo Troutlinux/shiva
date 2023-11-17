@@ -6,9 +6,10 @@ class TCLookup(object):
 
     def validate_if_it_contains_ticker(self, word):
         try:
-            with open('tickers.txt') as myfile:
+            with open('analyzer/integrations/tickers.txt') as myfile:
               print(f"Checking for word: {word}")
               if 'word' in myfile.read():
+                print("A ticker was found!")
                 return True
         except Exception as e:
             print(e)
