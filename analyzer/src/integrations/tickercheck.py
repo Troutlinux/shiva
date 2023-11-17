@@ -2,7 +2,7 @@ import requests
 
 
 class TCLookup(object):
-    def __init__(self):
+    #def __init__(self):
 
     def validate_if_it_contains_ticker(self, word):
         try:
