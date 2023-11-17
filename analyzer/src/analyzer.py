@@ -5,6 +5,7 @@ from integrations import virustotal
 from integrations import tickercheck
 import email_parser
 
+import config
 
 class SHIVAAnalyzer(object):
     def __init__(self, config):
