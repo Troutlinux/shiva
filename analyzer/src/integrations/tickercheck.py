@@ -6,7 +6,7 @@ class TCLookup(object):
 
     def validate_if_it_contains_ticker(self, word):
         try:
-            with open('mytickers.txt') as myfile:
+            with open('tickers.txt') as myfile:
               if 'word' in myfile.read():
                 return True
         except Exception as e:
