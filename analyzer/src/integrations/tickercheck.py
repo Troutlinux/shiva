@@ -8,7 +8,7 @@ class TCLookup(object):
         try:
             with open('analyzer/integrations/tickers.txt') as myfile:
               print(f"Checking for word: {word}")
-              if 'word' in myfile.read():
+              if word in myfile.read():
                 print("A ticker was found!")
                 return True
         except Exception as e:
